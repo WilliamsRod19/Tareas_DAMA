@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="midnight_blue">#191970</color>
+    <color name="cream">#FFFDD0</color>
+    <color name="crimson">#DC143C</color>
+    <color name="turquoise">#40E0D0</color>
+    <color name="olive">#808000</color>
+    <color name="amber">#FFBF00</color>
+    <color name="coral">#FF7F50</color>
+</resources>
