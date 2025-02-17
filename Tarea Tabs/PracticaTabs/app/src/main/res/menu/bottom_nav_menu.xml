@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/whoIAmFragment"
+        android:icon="@drawable/who_i_am"
+        android:title="Sobre mí" />
+    <item
+        android:id="@+id/careerFragment"
+        android:icon="@drawable/my_career"
+        android:title="@string/que_estudio" />
+    <item
+        android:id="@+id/technologiesFragment"
+        android:icon="@drawable/my_tecnologys"
+        android:title="@string/tecnologias" />
+</menu>
