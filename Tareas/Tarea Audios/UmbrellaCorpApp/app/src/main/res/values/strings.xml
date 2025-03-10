@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">UmbrellaCorpApp</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="tab_text_English">English</string>
+    <string name="tab_text_Spanish">Spanish</string>
+</resources>

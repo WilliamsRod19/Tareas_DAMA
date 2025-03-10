@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/detailImageNumber"
+            android:layout_width="260dp"
+            android:layout_height="260dp"
+            android:scaleType="fitCenter"
+            android:clipToOutline="true"
+            android:background="@drawable/corners_rounded"
+            android:elevation="8dp" />
+
+        <TextView
+            android:id="@+id/detailNameNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:paddingTop="18dp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="20dp"
+            android:gravity="center">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/playButtonNumber"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Play"
+                app:icon="@drawable/play_icon"
+                app:iconPadding="10dp"
+                app:cornerRadius="30dp"
+                app:backgroundTint="@color/red_umbrella"
+                app:strokeColor="@color/black_umbrella"
+                android:textColor="@color/white_umbrella"
+                app:iconTint="@color/white_umbrella"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="6dp"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/detailPronunciationNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:paddingTop="20dp" />
+    </LinearLayout>
+</ScrollView>
