@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Notificaciones Firebase</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl shadow-lg p-8 w-full max-w-2xl">
+        <h1 class="text-2xl font-bold mb-6 text-center text-gray-800">Enviar Notificaciones Firebase</h1>
+
+        <h2 class="text-xl font-semibold mb-4 text-gray-700">Enviar a un dispositivo o tema</h2>
+
+        <div class="space-y-4">
+            <div>
+                <label for="token" class="block text-sm font-medium text-gray-600">Token del dispositivo (dejar vacío para enviar a un tema):</label>
+                <input type="text" id="token" placeholder="Token FCM"
+                    class="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring focus:border-blue-500">
+            </div>
+
+            <div>
+                <label for="topic" class="block text-sm font-medium text-gray-600">Tema (si no se proporciona token):</label>
+                <input type="text" id="topic" placeholder="all_users" value="all_users"
+                    class="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring focus:border-blue-500">
+            </div>
+
+            <div>
+                <label for="title" class="block text-sm font-medium text-gray-600">Título:</label>
+                <input type="text" id="title" placeholder="Título de la notificación"
+                    class="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring focus:border-blue-500">
+            </div>
+
+            <div>
+                <label for="body" class="block text-sm font-medium text-gray-600">Mensaje:</label>
+                <textarea id="body" placeholder="Cuerpo de la notificación" rows="3"
+                    class="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring focus:border-blue-500"></textarea>
+            </div>
+
+            <div>
+                <label for="data" class="block text-sm font-medium text-gray-600">Datos adicionales (JSON):</label>
+                <textarea id="data" placeholder='{"key": "value"}' rows="3"
+                    class="mt-1 w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring focus:border-blue-500"></textarea>
+            </div>
+
+            <div class="text-center">
+                <button onclick="sendNotification()"
+                    class="mt-4 px-6 py-2 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 transition">Enviar Notificación</button>
+            </div>
+        </div>
+
+        <div class="mt-6 bg-gray-100 p-4 rounded-lg text-sm text-gray-700 whitespace-pre-wrap" id="response"></div>
+    </div>
+
+    <script>
+        async function sendNotification() {
+            const token = document.getElementById('token').value;
+            const topic = document.getElementById('topic').value;
+            const title = document.getElementById('title').value;
+            const body = document.getElementById('body').value;
+            let data = {};
+
+            try {
+                data = JSON.parse(document.getElementById('data').value || '{}');
+            } catch (e) {
+                alert('Error en formato JSON de datos');
+                return;
+            }
+
+            const payload = { title, body, data };
+
+            if (token) {
+                payload.token = token;
+            } else {
+                payload.topic = topic;
+            }
+
+            try {
+                const response = await fetch('/send_notification', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                const result = await response.json();
+                document.getElementById('response').innerText = JSON.stringify(result, null, 2);
+            } catch (error) {
+                document.getElementById('response').innerText = 'Error: ' + error.message;
+            }
+        }
+    </script>
+</body>
+</html>

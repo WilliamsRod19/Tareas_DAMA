@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "199654097934",
+    "project_id": "umbrellanotificacions",
+    "storage_bucket": "umbrellanotificacions.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:199654097934:android:d3426f6284dde6b8fa285f",
+        "android_client_info": {
+          "package_name": "net.williams.umbrellanotificacions"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDdTiGRZ9-il6uCW91uxsBRP1xXArOEhls"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
