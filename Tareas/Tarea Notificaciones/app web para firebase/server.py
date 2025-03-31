@@ -99,8 +99,6 @@ def register_device():
         token = data.get('token')
         user_id = data.get('user_id')
         
-        # Aquí podrías guardar el token en una base de datos
-        # Por simplicidad, este ejemplo no incluye el código de base de datos
         
         # Suscribir al dispositivo a un tema (opcional)
         messaging.subscribe_to_topic(token, 'all_users')
